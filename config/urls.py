@@ -1,6 +1,7 @@
 from django.conf import settings
 from django.urls import include, path
 from django.conf.urls.static import static
+from django.conf.urls import url
 from django.contrib import admin
 from django.views.generic import TemplateView
 from django.views import defaults as default_views
@@ -21,6 +22,10 @@ urlpatterns = [
     ),
     path("accounts/", include("allauth.urls")),
     # Your stuff: custom urls includes go here
+    path(
+        "images/", 
+        include("kitgram.images.urls", namespace="images")
+    ),
 ] + static(
     settings.MEDIA_URL, document_root=settings.MEDIA_ROOT
 )
