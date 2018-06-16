@@ -23,7 +23,7 @@ class User(AbstractUser):
     bio = models.TextField(null=True)
     phone = models.CharField(max_length=140, null=True)
     gender = models.CharField(max_length=80, choices=GENDER_CHOICES, null=True)
-    followers = models.ManyToManyField("self", blank=True)
+    followers = models.ManyToManyField("self", blank=True) # blank를 널지 않으면 필수 요소가 된다. 계정생성시 무조건 팔로워 1명 있어야되서 에러!! 아래도 동일. 설정후 마이그레이션
     following = models.ManyToManyField("self", blank=True)
 
     def __str__(self):
