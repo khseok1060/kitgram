@@ -67,11 +67,12 @@ THIRD_PARTY_APPS = [
     'allauth.account', # registration
     'allauth.socialaccount', # registration
     'rest_framework', # REST Framework
+    'taggit', # Tags for the photos
 ]
 LOCAL_APPS = [
     'kitgram.users.apps.UsersConfig',
     # Your stuff: custom apps go here
-    'kitgram.images.apps.ImagesConfig',
+    'kitgram.images.apps.ImagesConfig', # images app
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
@@ -238,3 +239,4 @@ SOCIALACCOUNT_ADAPTER = 'kitgram.users.adapters.SocialAccountAdapter'
 
 # Your stuff...
 # ------------------------------------------------------------------------------
+TAGGIT_CASE_INSENSITIVE = True

@@ -28,4 +28,10 @@ urlpatterns = [
     view=views.Comment.as_view(),
     name='comment'
   ),
+  url(
+    regex=r'^search/$',
+    view=views.Search.as_view(),
+    name='search'
+  )
+
 ]
