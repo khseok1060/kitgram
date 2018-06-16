@@ -137,3 +137,17 @@ class Search(APIView):
   def get(self, request, format=None):
 
     hashtags = request.query_params.get('hashtag', None)
+
+    if hashtags is not None:
+
+      hashtags = hashtags.split(",")
+
+      images = models.Image.objects.filter(tags__name__in=hashtags).distinct()
+      # deep relation: 오브젝트내의 요소중 오브젝트가 있을 경우 __username을 찾으면 오브젝트내의 username 키를 찾는다 그 뒤에 __in을 넣으면 배열중에서 해당 요소를 갖고 있는 것을 찾는다
+      serializer = serializers.CountImageSerializer(images, many=True)
+
+      return Response(data=serializer.data, status=status.HTTP_200_OK)
+
+    else:
+
+      return Response(status=status.HTTP_400_BAD_REQUEST)
