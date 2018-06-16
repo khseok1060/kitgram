@@ -11,6 +11,11 @@ urlpatterns = [
   url(
     regex=r'(?P<user_id>[0-9]+)/follow/$',
     view=views.FollowUser.as_view(),
-    name='follow_user'
-  )
+    name='follow_user',
+  ),
+  url(
+    regex=r'(?P<user_id>[0-9]+)/unfollow/$',
+    view=views.UnFollowUser.as_view(),
+    name='unfollow_user',
+  ),
 ]
