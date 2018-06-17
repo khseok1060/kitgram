@@ -71,4 +71,5 @@ class ImageSerializer(serializers.ModelSerializer):
       'comments',
       'like_count', #like count만 보고 싶기 때문에
       'creator',
+      'created_at',
     )
