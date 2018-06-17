@@ -23,7 +23,11 @@ urlpatterns = [
     # Your stuff: custom urls includes go here
     path(
         "images/", 
-        include("kitgram.images.urls", namespace="images")
+        include("kitgram.images.urls", namespace="images"),
+    ),
+    path(
+        "notifications/", 
+        include("kitgram.notifications.urls", namespace="notifications"),
     ),
 ] + static(
     settings.MEDIA_URL, document_root=settings.MEDIA_ROOT

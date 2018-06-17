@@ -32,6 +32,5 @@ urlpatterns = [
     regex=r'^search/$',
     view=views.Search.as_view(),
     name='search'
-  )
-
+  ),
 ]
