@@ -17,10 +17,10 @@ class User(AbstractUser):
 
     # First Name and Last Name do not cover name patterns
     # around the globe.
-    profile_image = models.ImageField(null=True)
+    profile_image = models.ImageField(null=True, blank=True)
     name = models.CharField(_("Name of User"), blank=True, max_length=255)
-    website = models.URLField(null=True)
-    bio = models.TextField(null=True)
+    website = models.URLField(null=True, blank=True)
+    bio = models.TextField(null=True, blank=True)
     phone = models.CharField(max_length=140, null=True)
     gender = models.CharField(max_length=80, choices=GENDER_CHOICES, null=True)
     followers = models.ManyToManyField("self", blank=True) # blank를 널지 않으면 필수 요소가 된다. 계정생성시 무조건 팔로워 1명 있어야되서 에러!! 아래도 동일. 설정후 마이그레이션
