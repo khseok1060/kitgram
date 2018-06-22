@@ -67,7 +67,7 @@ class UserProfile(APIView):
 
     def get(self, request, username, format=None):
 
-        found_user = self.get_user(self, username)
+        found_user = self.get_user(username)
 
         if found_user is None:
 
@@ -75,14 +75,14 @@ class UserProfile(APIView):
 
         serializer = serializers.UserProfileSerializer(found_user)
 
-        return Responese(data=serializer.data, status=status.HTTP_200_OK)
+        return Response(data=serializer.data, status=status.HTTP_200_OK)
 
 
     def put(self, request, username, format=None):
 
         user = request.user
 
-        found_user = self.get_user(self, username)
+        found_user = self.get_user(username)
 
         if found_user is None:
             
