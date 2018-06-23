@@ -215,8 +215,7 @@ class ImageDetail(APIView):
 
             return Response(status=status.HTTP_401_UNAUTHORIZED)
 
-        serializer = serializers.InputImageSerializer(
-            image, data=request.data, partial=True)
+        serializer = serializers.InputImageSerializer(image, data=request.data, partial=True)
 
         if serializer.is_valid():
 

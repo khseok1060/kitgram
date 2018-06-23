@@ -68,6 +68,7 @@ THIRD_PARTY_APPS = [
     'allauth.socialaccount', # registration
     'rest_framework', # REST Framework
     'taggit', # Tags for the photos
+    'taggit_serializer', # tag sertializer
 ]
 LOCAL_APPS = [
     'kitgram.users.apps.UsersConfig',
