@@ -5,7 +5,7 @@ import createHistory from 'history/createBrowserHistory';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import { i18nState } from "redux-i18n";
 import users from 'redux/modules/users';
-import Reactotron from 'ReactotronConfig';
+// import Reactotron from 'ReactotronConfig';
 
 const env = process.env.NODE_ENV;
 
@@ -28,13 +28,23 @@ let store;
 
 if(env === "development") {
   store = initialState => 
-    Reactotron.createStore(
+    createStore(
       reducer, 
       composeWithDevTools(applyMiddleware(...middlewares))
     );  
 } else {
   store = initialState => createStore(reducer, applyMiddleware(...middlewares));
 }
+
+// if(env === "development") {
+//   store = initialState => 
+//     Reactotron.createStore(
+//       reducer, 
+//       composeWithDevTools(applyMiddleware(...middlewares))
+//     );  
+// } else {
+//   store = initialState => createStore(reducer, applyMiddleware(...middlewares));
+// }
 
 export { history };
 
