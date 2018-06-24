@@ -1,10 +1,14 @@
 from django.conf import settings
 from django.urls import include, path
+from django.conf.urls import url
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.views.generic import TemplateView
 from django.views import defaults as default_views
 from rest_framework_jwt.views import obtain_jwt_token
+from kitgram import views
+
+
 
 urlpatterns = [
     # Django Admin, use {% url 'admin:index' %}
@@ -16,8 +20,6 @@ urlpatterns = [
         "users/",
         include("kitgram.users.urls", namespace="users"),
     ),
-    path("accounts/", include("allauth.urls")),
-    # Your stuff: custom urls includes go here
     path(
         "images/", 
         include("kitgram.images.urls", namespace="images"),
@@ -26,6 +28,10 @@ urlpatterns = [
         "notifications/", 
         include("kitgram.notifications.urls", namespace="notifications"),
     ),
+    path("accounts/", include("allauth.urls")),
+    # Your stuff: custom urls includes go here
+    url(r'^', views.ReactAppView.as_view()),
+    
 ] + static(
     settings.MEDIA_URL, document_root=settings.MEDIA_ROOT
 )
