@@ -157,7 +157,7 @@ module.exports = {
           // In production, we use a plugin to extract that CSS to a file, but
           // in development "style" loader enables hot editing of CSS.
           {
-            test: /\.css$/,
+            test: /\.(css|scss)$/,
             use: [
               require.resolve('style-loader'),
               {
@@ -184,7 +184,14 @@ module.exports = {
                       flexbox: 'no-2009',
                     }),
                   ],
+                  sourceMap: true
                 },
+              },
+              {
+                loader: require.resolve('sass-loader'),
+                options: {
+                  sourceMap: true
+                }
               },
             ],
           },
