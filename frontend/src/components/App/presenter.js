@@ -14,7 +14,7 @@ const App  = props => [
   <Footer key={3} />
 ];
 
-App.PropTypes = {
+App.propTypes = {
   isLoggedIn: PropTypes.bool.isRequired
 }
 
