@@ -27,11 +27,12 @@ const LoginForm = (props, context) => (
     <span className={formStyles.divider}>{context.t("or")}</span>
     <FacebookLogin 
       appId="411884295948057"
-      autoLoad={true}
+      autoLoad={false}
       fields="name,eamil,picture"
       callback={props.handleFacebookLogin}
       cssClass={formStyles.facebookLink}
       icon={"fa-facebook-official"}
+      textButton={context.t("Log in with Facebook")}
     />
     <span className={formStyles.forgotLink}>
       {context.t("Forgot password")}?
