@@ -13,11 +13,39 @@ const SignupForm = (props, context) => (
       {context.t("Log in with Facebook")}
     </button>
     <span className={formStyles.divider}>{context.t("or")}</span>
-    <form className={formStyles.form}>
-      <input type="email" placeholder={context.t("Email")} className={formStyles.textInput}/>
-      <input type="text" placeholder={context.t("Full name")} className={formStyles.textInput}/>
-      <input type="text" placeholder={context.t("Username")} className={formStyles.textInput}/>
-      <input type="password" placeholder={context.t("Password")} className={formStyles.textInput}/>
+    <form className={formStyles.form} onSubmit={props.handleSubmit}>
+      <input 
+        type="email" 
+        placeholder={context.t("Email")} 
+        className={formStyles.textInput}
+        value={props.emailValue}
+        name="email"
+        onChange={props.handleInputChange}
+      />
+      <input 
+        type="text" 
+        placeholder={context.t("Full name")} 
+        className={formStyles.textInput}
+        value={props.fullNameValue}
+        name="fullName"
+        onChange={props.handleInputChange}
+      />
+      <input 
+        type="text" 
+        placeholder={context.t("Username")} 
+        className={formStyles.textInput}
+        value={props.usernameValue}
+        name="username"
+        onChange={props.handleInputChange}
+      />
+      <input 
+        type="password" 
+        placeholder={context.t("Password")} 
+        className={formStyles.textInput}
+        value={props.passwordValue}
+        name="password"
+        onChange={props.handleInputChange}
+      />
       <input type="submit" value={context.t("Sign up")} className={formStyles.button}/>
     </form>
     <p className={formStyles.terms}>
@@ -25,6 +53,15 @@ const SignupForm = (props, context) => (
     </p>
   </div>
 );
+
+SignupForm.propTypes = {
+  emailValue: PropTypes.string.isRequired,
+  fullNameValue: PropTypes.string.isRequired,
+  usernameValue: PropTypes.string.isRequired,
+  passwordValue: PropTypes.string.isRequired,
+  handleInputChange: PropTypes.func.isRequired,
+  handleSubmit: PropTypes.func.isRequired
+}
 
 SignupForm.contextTypes = {
   t: PropTypes.func.isRequired
