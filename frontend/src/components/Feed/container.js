@@ -13,12 +13,27 @@ class Container extends Component {
 
   componentDidMount() {
     const { getFeed } = this.props;
-    getFeed();
+    if(!this.props.feed) {
+      getFeed();
+    } else {
+      this.setState({
+        loading: false
+      })
+    }
+  }
+
+  componentWillReceiveProps = (nextProps) => {
+    if(nextProps.feed) {
+      this.setState({
+        loading: false
+      })
+    }
   }
 
   render() {
+    const { feed } = this.props;
     return (
-      <Feed {...this.state} />
+      <Feed {...this.state} feed={feed} />
     )
   }
 }
