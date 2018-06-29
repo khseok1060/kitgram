@@ -3,6 +3,11 @@
   @include boxBorder(no);
   display: flex;
   justify-content: center;
+  margin-bottom: 60px;
+  box-sizing: border-box;
+  @include breakpoint("phone") {
+    margin-bottom: 0;
+  }
   .inner {
     max-width: $max-page-width;
     display: flex;
@@ -14,7 +19,13 @@
     .column {
       display: flex;
       justify-content: center;
+      align-items: center;
       width: 33%;
+      &:nth-child(2) {
+        @include breakpoint("phone") {
+          display: none;
+        }
+      }
       &:first-child {
         justify-content: flex-start;
       }
@@ -33,7 +44,8 @@
         background-color: #fafafa;
         font-size: $normal-font-size;
         font-weight: 300;
-        &:placeholder {
+        margin-right: 15px;
+        &::placeholder {
           color: $dark-grey;
         }
         &:focus {
