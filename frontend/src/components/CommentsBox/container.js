@@ -28,6 +28,9 @@ class Container extends Component {
     if(key === "Enter") {
       event.preventDefault(); // 텍스트 입력창에 엔터로 새로운 줄 생성 되는것 막는 것
       submitComment(comment);
+      this.setState({
+        comment: ""
+      })
     }
   };
 }
