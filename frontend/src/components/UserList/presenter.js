@@ -1,8 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
+import Ionicons from "react-ionicons";
 import styles from "./styles.scss";
 import Loading from "components/Loading";
-import Ionicons from "react-ionicons";
+import UserRow from "components/UserRow";
 
 const UserList = props => (
   <div className={styles.container}>
@@ -13,10 +14,17 @@ const UserList = props => (
           <Ionicons icon="md-close" fontSize="20px" color="black" />
         </span>
       </header>
-      <div className={styles.content}>{props.loading ? <Loading /> : null}</div>
+      <div className={styles.content}>{props.loading ? <Loading /> : <RenderUsers list={props.userList}/> }</div>
     </div>
   </div>
 );
+
+const RenderUsers = props =>
+  props.list.map(user => <UserRow user={user} key={user.id} />);
+
+RenderUsers.propTypes = {
+  list: PropTypes.array
+}
 
 UserList.propTypes = {
   title: PropTypes.string.isRequired,
