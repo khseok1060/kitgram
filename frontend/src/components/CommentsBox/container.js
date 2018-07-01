@@ -8,6 +8,7 @@ class Container extends Component {
   render() {
     return (
       <CommentsBox 
+        { ...this.props }
         { ...this.state } 
         handleInputChange={this._handleInputChange} 
         handleKeyPress={this._handleKeyPress}
@@ -21,11 +22,13 @@ class Container extends Component {
     });
   };
   _handleKeyPress = event => {
+    const { submitComment } = this.props;
+    const { comment } = this.state;
     const { key } = event;
     if(key === "Enter") {
       event.preventDefault(); // 텍스트 입력창에 엔터로 새로운 줄 생성 되는것 막는 것
+      submitComment(comment);
     }
-    console.log(key);
   };
 }
 

@@ -1,5 +1,5 @@
 """
-Django settings for nomadgram project.
+Django settings for kitgram project.
 For more information on this file, see
 https://docs.djangoproject.com/en/dev/topics/settings/
 For the full list of settings and their values, see
@@ -7,7 +7,7 @@ https://docs.djangoproject.com/en/dev/ref/settings/
 """
 import environ
 
-# (nomadgram/config/settings/base.py - 3 = nomadgram/)
+# (kitgram/config/settings/base.py - 3 = kitgram/)
 ROOT_DIR = environ.Path(__file__) - 3
 APPS_DIR = ROOT_DIR.path('kitgram')
 
@@ -109,7 +109,7 @@ EMAIL_BACKEND = env('DJANGO_EMAIL_BACKEND',
 # ------------------------------------------------------------------------------
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#admins
 ADMINS = [
-    ("""Nomad Coders""", 'nico@nomadcoders.co'),
+    ("""kitgram""", 'khseok1060@gmail.com'),
 ]
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#managers
