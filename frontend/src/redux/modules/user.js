@@ -5,6 +5,7 @@ const LOGOUT = "LOGOUT";
 const SET_USER_LIST = "SET_USER_LIST";
 const FOLLOW_USER = "FOLLOW_USER";
 const UNFOLLOW_USER = "UNFOLLOW_USER";
+const SET_EXPLORE = "SET_EXPLORE";
 
 // action creators
 function saveToken(token) {
@@ -39,6 +40,13 @@ function setUnfollowUser(userId) {
     type: UNFOLLOW_USER,
     userId
   };
+}
+
+function setExplore(userList) {
+  return {
+    type: SET_EXPLORE,
+    userList
+  }
 }
 
 // API actions
@@ -210,6 +218,8 @@ function reducer(state = initialState, action) {
       return applyFollowUser(state, action);
     case UNFOLLOW_USER:
       return applyUnfollowUser(state, action);
+    case SET_EXPLORE:
+      return applySetExplore(state, action);
     default:
       return state;
   }
@@ -264,6 +274,14 @@ function applyUnfollowUser(state, action) {
     return user;
   });
   return {...state, userList: updatedUserList}
+}
+
+function applySetExplore(state, action) {
+  const { userList } = action;
+  return {
+    ...state,
+    userList
+  }
 }
 
 // exports
