@@ -195,7 +195,7 @@ function getExplore() {
       }
       return response.json()
     })
-    .then(json => dispatch(setUserList(json)));
+    .then(json => dispatch(setExplore(json)));
   }
 }
 

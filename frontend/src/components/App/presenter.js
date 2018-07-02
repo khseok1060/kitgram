@@ -25,6 +25,7 @@ const PrivateRoutes = props => (
   <Switch>
     <Route key="1" exact path="/" component={Feed} />,
     <Route key="2" exact path="/explore" component={Explore} />
+    <Route path="/search/:serachTerm" render={() => "search"} />
   </Switch>
 );
 
