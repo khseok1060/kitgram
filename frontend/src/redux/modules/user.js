@@ -22,13 +22,6 @@ function logout() {
   };
 }
 
-function setUserList(userList) {
-  return {
-    type: SET_USER_LIST,
-    userList
-  };
-}
-
 function setFollowUser(userId) {
   return {
     type: FOLLOW_USER,
@@ -40,6 +33,13 @@ function setUnfollowUser(userId) {
   return {
     type: UNFOLLOW_USER,
     userId
+  };
+}
+
+function setUserList(userList) {
+  return {
+    type: SET_USER_LIST,
+    userList
   };
 }
 
@@ -208,7 +208,7 @@ function getExplore() {
 }
 
 function searchByTerm(searchTerm) {
-  return async(dispatch, getState) => {
+  return async (dispatch, getState) => {
     const { user: { token } } = getState();
     const userList = await searchUsers(token, searchTerm);
     const imageList = await searchImages(token, searchTerm);
@@ -224,7 +224,8 @@ function searchByTerm(searchTerm) {
 function searchUsers(token, searchTerm) {
   return fetch(`/users/search/?username=${searchTerm}/`,{
     headers: {
-      Authorization: `JWT ${token}`
+      Authorization: `JWT ${token}`,
+      "Content-Type": "applicaiont/json"
     }
   })
   .then(response => {
@@ -239,7 +240,8 @@ function searchUsers(token, searchTerm) {
 function searchImages(token, searchTerm) {
   return fetch(`/images/search/?hashtags=${searchTerm}/`,{
     headers: {
-      Authorization: `JWT ${token}`
+      Authorization: `JWT ${token}`,
+      "Content-Type": "applicaiont/json"
     }
   })
   .then(response => {
