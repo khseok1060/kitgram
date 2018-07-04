@@ -222,7 +222,7 @@ function searchByTerm(searchTerm) {
 }
 
 function searchUsers(token, searchTerm) {
-  return fetch(`/users/search/?username=${searchTerm}/`,{
+  return fetch(`/users/search/?username=${searchTerm}`,{
     headers: {
       Authorization: `JWT ${token}`,
       "Content-Type": "applicaiont/json"
@@ -238,7 +238,7 @@ function searchUsers(token, searchTerm) {
 }
 
 function searchImages(token, searchTerm) {
-  return fetch(`/images/search/?hashtags=${searchTerm}/`,{
+  return fetch(`/images/search/?hashtags=${searchTerm}`,{
     headers: {
       Authorization: `JWT ${token}`,
       "Content-Type": "applicaiont/json"

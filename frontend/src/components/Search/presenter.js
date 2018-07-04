@@ -26,12 +26,12 @@ const Search = (props, context) => {
         <h4 className={styles.title}>{context.t("Photos")}</h4>
         {props.loading && <Loading />}
         {!props.loading &&
-          props.userList.length < 1 && (
+          props.imageList.length < 1 && (
             <NotFound text={context.t("Nothing found :(")} />
         )}
         <div className={styles.content}>
           {!props.loading &&
-            props.userList.length > 0 && (
+            props.imageList.length > 0 && (
               <RenderImageSearch imageList={props.imageList} />
           )}
         </div>
